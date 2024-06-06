@@ -20,7 +20,7 @@ const app = express();
 let allowedOrigin = "http://localhost:3000";
 
 if (process.env.NODE_ENV === "production") {
-  allowedOrigin = "https://spotify-chat-client.vercel.app";
+  allowedOrigin = "https://spotify-chat.vercel.app";
 }
 
 const corsOptions = {
