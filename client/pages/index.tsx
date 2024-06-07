@@ -28,9 +28,9 @@ const RoomsPage = () => {
   return (
     <div className="h-full w-full flex justify-center items-center">
       <Head>
-        <title>Curie | Chat</title>
+        <title>SpotiChat</title>
         <meta name="description" content="A chat app for music lovers" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/white-title.png" />
       </Head>
       <RoomsList />
       <div className="w-full h-full hidden md:flex">

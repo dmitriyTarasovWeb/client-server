@@ -3,30 +3,15 @@ import useGenerateRandomString from "./useGenerateRandomString";
 const randomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min)) + min;
 
-const componentToHex = (c: number) => {
-  var hex = c.toString(16);
-  return hex.length === 1 ? "0" + hex : hex;
+const generateGreenColor = () => {
+  return `00${randomNumber(150, 256).toString(16)}00`; // зеленые оттенки
 };
 
-const rgbToHex = (r: number, g: number, b: number) => {
-  return componentToHex(r) + componentToHex(g) + componentToHex(b);
-};
+const generateRandomAvatar = (sprites: string) => {
+  const randomString = useGenerateRandomString(16);
+  const color = generateGreenColor();
 
-const generateRandomColorHex: () => string = () => {
-  return rgbToHex(
-    randomNumber(200, 120),
-    randomNumber(200, 120),
-    randomNumber(200, 120)
-  );
-};
-
-const generateRandomAvatar: (sprites: string) => string = (sprites) => {
-  const diceBearAvatarEndpoint = "https://api.dicebear.com/7.x";
-  const generateRandomString = useGenerateRandomString;
-
-  return `${diceBearAvatarEndpoint}/${sprites}/svg?backgroundColor=${generateRandomColorHex()}&seed=${generateRandomString(
-    16
-  )}`;
+  return `https://robohash.org/${randomString}?set=${sprites}&bgset=bg1&bgcolor=${color}`;
 };
 
 const useGenerateRandomAvatar = () => generateRandomAvatar;

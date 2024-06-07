@@ -11,7 +11,7 @@ const RoomsList = () => {
 
   return (
     <div
-      className={"h-full bg-indigo-700/50 w-full md:w-auto flex-col sm:border-r border-indigo-300/30 ".concat(
+      className={"h-full bg-spotify-black-grey w-full md:w-auto flex-col sm:border-r border-spotify-black ".concat(
         router.pathname === "/" ? "flex" : "hidden border-r-0 sm:flex"
       )}
     >

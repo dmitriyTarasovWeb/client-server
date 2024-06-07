@@ -13,7 +13,6 @@ const ChatTextField: FC<{ onSend: (value: string) => void }> = ({ onSend }) => {
 
   const handleSmilyClick = (event: React.MouseEvent<Element, MouseEvent>) => {
     event.preventDefault();
-
     setEmojiPickerOpen(!emojiPickerOpen);
   };
 
@@ -38,9 +37,10 @@ const ChatTextField: FC<{ onSend: (value: string) => void }> = ({ onSend }) => {
   const handleEmojiPickerDismiss = () => {
     setEmojiPickerOpen(false);
   };
+
   return (
     <div className="w-full px-2">
-      {emojiPickerOpen ? (
+      {emojiPickerOpen && (
         <>
           <div
             className="fixed w-screen h-screen top-0 left-0 z-20"
@@ -59,18 +59,16 @@ const ChatTextField: FC<{ onSend: (value: string) => void }> = ({ onSend }) => {
             }}
           />
         </>
-      ) : (
-        <></>
       )}
-      <div className="w-full rounded-full h-16 bg-gray-700/50 p-2 flex">
+      <div className="w-full rounded-full h-16 bg-spotify-black/20 p-3 flex">
         <button
-          className="h-full p-1 text-4xl text-gray-300/50"
+          className="h-full p-1 text-4xl text-spotify-grey/50"
           onClick={handleSmilyClick}
         >
           {emojiPickerOpen ? (
-            <AiOutlineCloseCircle className="hover:text-red-400" />
+            <AiOutlineCloseCircle className="hover:text-spotify-red" />
           ) : (
-            <FaSmile className="hover:text-yellow-400" />
+            <FaSmile className="hover:text-spotify-yellow" />
           )}
         </button>
         <form onSubmit={handleSubmit} className="flex w-full">
@@ -79,11 +77,11 @@ const ChatTextField: FC<{ onSend: (value: string) => void }> = ({ onSend }) => {
             value={message}
             placeholder="Say hi to your friends..."
             onChange={handleChange}
-            className="w-full mr-2 h-full bg-transparent border-0 outline-none px-4"
+            className="w-full mr-2 h-full bg-transparent border-0 outline-none px-4 text-spotify-white"
           />
           <button
-            className={"h-full text-gray-200 text-2xl rounded-full sm:px-8 px-6 duration-300 ".concat(
-              message !== "" ? "bg-indigo-500" : "bg-indigo-500/50"
+            className={"h-full text-spotify-white text-2xl rounded-full sm:px-8 px-6 duration-300 ".concat(
+              message !== "" ? "bg-spotify-green" : "bg-spotify-green/50"
             )}
           >
             <IoSend />

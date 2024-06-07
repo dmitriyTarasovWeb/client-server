@@ -16,15 +16,15 @@ const NavbarLinkButton: FC<{
           className={"p-[0.2rem] rounded-full rounded-l-none duration-300 absolute ".concat(
             router.pathname === to ||
               (to === "/" && !otherPaths.includes(router.pathname))
-              ? "bg-indigo-500 h-16"
-              : "group-hover:bg-indigo-500/50 group-hover:h-4"
+              ? "bg-spotify-green h-16"
+              : "group-hover:bg-spotify-green/50 group-hover:h-4"
           )}
         ></div>
         <div
           className={"peer w-full h-16 flex justify-center items-center p-4 duration-300 ".concat(
             router.pathname === to ||
               (to === "/" && !otherPaths.includes(router.pathname))
-              ? "bg-gradient-to-r from-indigo-500/30 to-transparent text-white"
+              ? "bg-gradient-to-r from-spotify-green/30 to-transparent text-white"
               : "text-white/40"
           )}
         >

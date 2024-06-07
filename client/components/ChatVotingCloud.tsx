@@ -162,86 +162,87 @@ const ChatVotingCloud = () => {
         className="mr-2 h-8 rounded-full absolute -top-4 left-1 drop-shadow z-20"
       />
 
-      <div className="sm:max-w-[calc(70%)] max-w-[calc(85%)] min-w-[4rem] flex flex-col justify-start items-center text-gray-100 ml-6">
+<div className="sm:max-w-[calc(70%)] max-w-[calc(85%)] min-w-[4rem] flex flex-col justify-start items-center text-gray-100 ml-6">
+    <div
+      className={
+        "w-full z-10 flex justify-end items-center bg-gradient-to-r from-spotify-green to-spotify-blue via-spotify-blue bg-[length:300%_300%] animate-shift rounded-lg relative before:content-[''] before:w-full before:h-full before:bottom-0 before:left-0 before:absolute before:blur-md before:bg-gradient-to-r before:from-spotify-green before:via-spotify-blue before:to-spotify-purple before:bg-[length:300%_300%] before:animate-shift before:rounded-lg before:z-0"
+      }
+    >
+      <div
+        className="absolute h-full bg-spotify-black rounded-r-lg"
+        style={{
+          width: `${((15 - timer) * 100) / 15}%`,
+        }}
+      />
+      <div className={`w-full rounded-lg flex pt-4 p-[0.3rem]`}>
         <div
-          className={
-            "w-full z-10 flex justify-end items-center bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-[length:300%_300%] animate-shift rounded-lg relative before:content-[''] before:w-full before:h-full before:bottom-0 before:left-0 before:absolute before:blur-md before:bg-gradient-to-r before:from-green-400 before:via-blue-600 before:to-purple-500 before:bg-[length:300%_300%] before:animate-shift before:rounded-lg before:z-0"
-          }
+          className={`w-full bg-gradient-to-b from-spotify-blue to-spotify-black rounded-lg flex z-20 flex-col items-start justify-start`}
         >
           <div
-            className="absolute h-full bg-indigo-900 rounded-r-lg"
-            style={{
-              width: `${((15 - timer) * 100) / 15}%`,
-            }}
-          />
-          <div className={`w-full rounded-lg flex pt-4 p-[0.3rem]`}>
-            <div
-              className={`w-full bg-gradient-to-b from-indigo-600 to-indigo-800 rounded-lg flex z-20 flex-col items-start justify-start`}
-            >
-              <div
-                className={`w-full flex flex-col items-start justify-start px-3 py-2`}
-              >
-                <span className={`text-indigo-400 text-sm font-medium z-10`}>
-                  {sender.name}
-                </span>
-                <p className="w-full z-10">{"✋ Suggesting to play"}</p>
+            className={`w-full flex flex-col items-start justify-start px-3 py-2`}
+          >
+            <span className={`text-spotify-green text-sm font-medium z-10`}>
+              {sender.name}
+            </span>
+            <p className="w-full z-10">{"✋ Suggesting to play"}</p>
+            <span className="my-1" />
+            <div className="w-full h-20 p-2 bg-spotify-black border border-spotify-black/20 rounded-lg flex items-center justify-start overflow-hidden">
+              <div className="h-full w-[6rem] rounded overflow-hidden flex items-center relative">
+                <img
+                  src={suggestedTrack.thumbnail}
+                  alt="thumbnail"
+                  className="w-full h-full"
+                />
+              </div>
+              <span className="mx-2" />
+              <div className="w-full whitespace-nowrap">
+                <h1 className="sm:w-[16rem] w-[6rem] text-left overflow-hidden text-ellipsis font-medium text-spotify-white">
+                  {suggestedTrack.name}
+                </h1>
                 <span className="my-1" />
-                <div className="w-full h-20 p-2 bg-indigo-500 border border-indigo-300/20 rounded-lg flex items-center justify-start overflow-hidden">
-                  <div className="h-full w-[6rem] rounded overflow-hidden flex items-center relative">
-                    <img
-                      src={suggestedTrack.thumbnail}
-                      alt="thumbnail"
-                      className="w-zfull h-full"
-                    />
-                  </div>
-                  <span className="mx-2" />
-                  <div className="w-full whitespace-nowrap">
-                    <h1 className="sm:w-[16rem] w-[6rem] text-left overflow-hidden text-ellipsis font-medium">
-                      {suggestedTrack.name}
-                    </h1>
-                    <span className="my-1" />
-                    <p className="sm:w-[16rem] w-[6rem] text-gray-300 text-left text-sm overflow-hidden text-ellipsis h-4">
-                      <span className="mr-2">{suggestedTrack.channel}</span>
-                    </p>
-                  </div>
-                </div>
-                <span className="my-1" />
+                <p className="sm:w-[16rem] w-[6rem] text-spotify-light-grey text-left text-sm overflow-hidden text-ellipsis h-4">
+                  <span className="mr-2">{suggestedTrack.channel}</span>
+                </p>
               </div>
             </div>
+            <span className="my-1" />
           </div>
-        </div>
-        <span className="my-3" />
-        <div className="w-full flex justify-center items-center">
-          <button
-            className={`group w-full text-2xl bg-gradient-to-br rounded-full border border-indigo-300/10 ${
-              arrayContains(yesUsers, cuid)
-                ? "from-green-500 to-green-500/40"
-                : "from-green-500/50 to-green-500/30"
-            } hover:from-green-500 hover:to-green-500/40 h-16 flex justify-center items-center duration-100 relative`}
-            onClick={handleYesClick}
-          >
-            <span className="p-1 px-[0.6rem] bg-black/50 absolute text-white text-sm rounded-full right-5 top-[-1rem]">
-              {yesUsers.length}
-            </span>
-            <span className="group-hover:scale-125 duration-100">{"👍️"}</span>
-          </button>
-          <span className="mx-2" />
-          <button
-            className={`group w-full text-2xl bg-gradient-to-br rounded-full border border-indigo-300/10 ${
-              arrayContains(noUsers, cuid)
-                ? "from-red-500 to-red-500/40"
-                : "from-red-500/50 to-red-500/30"
-            } hover:from-red-500 hover:to-red-500/40 h-16 flex justify-center items-center duration-100 relative `}
-            onClick={handleNoClick}
-          >
-            <span className="p-1 px-[0.6rem] bg-black/50 absolute text-white text-sm rounded-full right-5 top-[-1rem]">
-              {noUsers.length}
-            </span>
-            <span className="group-hover:scale-125 duration-100">{"👎️"}</span>
-          </button>
         </div>
       </div>
     </div>
+    <span className="my-3" />
+    <div className="w-full flex justify-center items-center">
+      <button
+        className={`group w-full text-2xl bg-gradient-to-br rounded-full border border-spotify-black/10 ${
+          arrayContains(yesUsers, cuid)
+            ? "from-spotify-green to-spotify-green"
+            : "from-spotify-green/50 to-spotify-green/30"
+        } hover:from-spotify-green hover:to-spotify-green/40 h-16 flex justify-center items-center duration-100 relative`}
+        onClick={handleYesClick}
+      >
+        <span className="p-1 px-[0.6rem] bg-spotify-black/50 absolute text-white text-sm rounded-full right-5 top-[-1rem]">
+          {yesUsers.length}
+        </span>
+        <span className="group-hover:scale-125 duration-100">{"👍️"}</span>
+      </button>
+      <span className="mx-2" />
+      <button
+        className={`group w-full text-2xl bg-gradient-to-br rounded-full border border-spotify-black/10 ${
+          arrayContains(noUsers, cuid)
+            ? "from-spotify-red to-spotify-red"
+            : "from-spotify-red/50 to-spotify-red/30"
+        } hover:from-spotify-red hover:to-spotify-red/40 h-16 flex justify-center items-center duration-100 relative `}
+        onClick={handleNoClick}
+      >
+        <span className="p-1 px-[0.6rem] bg-spotify-black/50 absolute text-white text-sm rounded-full right-5 top-[-1rem]">
+          {noUsers.length}
+        </span>
+        <span className="group-hover:scale-125 duration-100">{"👎️"}</span>
+      </button>
+    </div>
+  </div>
+</div>
+
   );
 };
 

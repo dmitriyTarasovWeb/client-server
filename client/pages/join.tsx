@@ -5,6 +5,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import girlListeningMusicAnimation from "../public/assets/girl_listening_to_music_lootie.json";
 import { getRoomAPI } from "../services/apiServices";
 
+
 export default function JoinRoom() {
   const [roomId, setRoomId] = useState<string>("");
   const [validationIssue, setValidationIssue] = useState<string>("");

@@ -24,7 +24,7 @@ const SmallButton = ({
           : ""
       } ${
         type === "indigo"
-          ? "text-indigo-300 bg-indigo-500/20 border border-indigo-500"
+          ? "text-indigo-300 bg-spotify-green-dark border border-indigo-500"
           : ""
       } ${
         type === "orange"

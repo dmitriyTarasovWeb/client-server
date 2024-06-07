@@ -28,7 +28,7 @@ export default function CreateRoom() {
     router.replace(`/${roomID}`);
   });
 
-  //   const { socket } = useSocket();
+    // const { socket } = useSocket();
 
   const copyToClipBoard = () => {
     navigator.clipboard.writeText(roomID);

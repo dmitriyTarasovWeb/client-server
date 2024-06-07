@@ -13,7 +13,7 @@ import NavbarLinkButton from "./NavbarLinkButton";
 const DesktopNavbar = () => {
   return (
     <div
-      className={"hidden sm:flex w-16 h-full rounded-bl-lg backdrop-blur-md bg-indigo-700/50 border border-l-0 border-y-0 border-indigo-300/30 text-gray-800/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
+      className={"hidden sm:flex w-16 h-full rounded-bl-lg backdrop-blur-md bg-spotify-black border border-l-0 border-y-0 border-spotify-grey text-spotify-text/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
     >
       <NavbarLinkButton
         to="/"
@@ -48,7 +48,7 @@ const Avatar = ({ active }: { active?: boolean }) => {
       src={currentUser?.avatarUrl}
       alt="avatar"
       className={"rounded-full border-2 ".concat(
-        active ? "border-white" : "border-transparent opacity-70"
+        active ? "border-spotify-green" : "border-transparent opacity-70"
       )}
     />
   );
