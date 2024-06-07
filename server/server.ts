@@ -17,10 +17,10 @@ connectMongoDB();
 const port = process.env.PORT || 5000;
 const app = express();
 
-let allowedOrigin = "http://localhost:3000";
+let allowedOrigin = "http://45.128.205.214/";
 
 if (process.env.NODE_ENV === "production") {
-  allowedOrigin = "https://spotify-chat-client-server.vercel.app";
+  allowedOrigin = "http://45.128.205.214/";
 }
 
 const corsOptions = {
