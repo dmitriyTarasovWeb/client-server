@@ -8,7 +8,7 @@ type BigButtonProps = {
 const BigButton: FC<BigButtonProps> = ({ onClick, children }) => {
   return (
     <button
-      className="bg-indigo-500 p-4 rounded-lg font-bold w-full max-w-sm flex justify-center items-center hover:scale-105 duration-100 drop-shadow-lg hover:drop-shadow-2xl"
+      className="bg-spotify-green text-white p-4 rounded-lg font-bold w-full max-w-sm flex justify-center items-center hover:scale-105 duration-100 drop-shadow-lg hover:drop-shadow-2xl"
       onClick={onClick}
     >
       {children}

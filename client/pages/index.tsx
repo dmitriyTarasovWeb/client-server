@@ -33,7 +33,7 @@ const RoomsPage = () => {
         <link rel="icon" href="/white-title.png" />
       </Head>
       <RoomsList />
-      <div className="w-full h-full hidden md:flex">
+      <div className="w-full h-full hidden md:flex ">
         <NoRoom />
       </div>
     </div>

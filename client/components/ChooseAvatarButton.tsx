@@ -16,8 +16,8 @@ const ChooseAvatarButton = ({
     <button onClick={handleAvatarClick}>
       <img
         id={idx.toString()}
-        className={"h-12 sm:h-14 m-[0.05rem] sm:m-1 p-1 rounded-full hover:outline hover:outline-indigo-500/30 ".concat(
-          idx === selectedIdx ? "outline outline-indigo-500" : ""
+        className={"h-12 sm:h-14 m-[0.05rem] sm:m-1 p-1 rounded-full hover:outline hover:outline-spotify-green-dark/30 ".concat(
+          idx === selectedIdx ? "outline outline-spotify-green-dark" : ""
         )}
         src={avatar}
         alt=""

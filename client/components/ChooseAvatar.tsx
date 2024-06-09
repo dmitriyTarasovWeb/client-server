@@ -77,8 +77,8 @@ const ChooseAvatar = ({
           alt=""
           className="h-24 sm:h-36 my-[0.5rem] rounded-full"
         />
-        <span className="hidden sm:flex h-24 mr-0 ml-2 w-[1px] border border-r-0 border-indigo-300/30" />
-        <span className="sm:hidden my-2 h-[1px] w-36 border border-b-0 border-indigo-300/30" />
+        <span className="hidden sm:flex h-24 mr-0 ml-2 w-[1px] border border-r-0 border-spotify-green/30" />
+        <span className="sm:hidden my-2 h-[1px] w-36 border border-b-0 border-spotify-green/30" />
         <div className="w-full flex flex-wrap justify-center">
           {avatars.map((avatar, i) => {
             return (

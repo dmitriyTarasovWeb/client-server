@@ -23,6 +23,10 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({ children }) => {
         poster="/assets/bg-static.jpg"
         className="w-auto h-full min-w-[100%] min-h-[100%] fixed z-[-10] object-cover"
       >
+        <source
+          src="https://res.cloudinary.com/dvisf70pm/video/upload/v1670995065/curie/bg-video_hxnn5p.mp4"
+          type="video/mp4"
+        />
       </video>
       <Toaster />
       <WindowWrapper>{children}</WindowWrapper>
