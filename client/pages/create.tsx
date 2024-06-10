@@ -7,6 +7,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import useGenerateUniqueRandomString from "../hooks/useGenerateUniqueRandomString";
 import useToast from "../hooks/useToast";
 import useCreateRoom from "../hooks/useCreateRoom";
+import '@fontsource/montserrat/500.css';
 // import useSocket from "../hooks/useSocket";
 
 export default function CreateRoom() {
@@ -86,14 +87,14 @@ export default function CreateRoom() {
   }, []);
 
   return (
-    <div className="w-full h-full rounded-br-lg flex flex-col justify-start items-center gap-2 bg-blue-900/70">
+    <div className="w-full h-full rounded-br-lg flex flex-col justify-start items-center gap-2 bg-white/5 font-montserrat">
       <form
         onSubmit={handleSubmit}
         style={{ height: `${chatsHeight}px` }}
         className="w-full overflow-y-auto p-4 pb-12"
       >
         <div className="w-full h-12 sm:h-24 flex justify-center items-center">
-          <h1 className="text-gray-200 text-2xl sm:text-4xl py-1">
+          <h1 className="text-spotify-text font-semibold text-2xl sm:text-4xl py-1">
             Create a Room
           </h1>
         </div>
@@ -108,7 +109,7 @@ export default function CreateRoom() {
                 if (e.key === "Enter") handleSubmit();
               }}
               placeholder="Enter room name..."
-              className="sm:p-2 p-1 bg-gray-300/10 outline-none border-none outline-2 focus:outline-4 outline-indigo-500/40 focus:outline-indigo-500 rounded-lg sm:text-2xl text-lg w-full duration-200"
+              className="sm:p-2 p-1 bg-gray-300/10 outline-none border-none outline-3 focus:outline-4 outline-spotify-green-dark/40 focus:outline-spotify-green rounded-lg sm:text-2xl text-lg w-full duration-200"
             />
             <span className="h-2" />
             <label className="text-sm text-red-500">
@@ -126,12 +127,12 @@ export default function CreateRoom() {
             <div className="flex flex-col items-start">
               <label className="font-medium mb-2">Room ID</label>
               <div className="w-full flex">
-                <span className="mr-4 font-medium text-sm sm:text-lg text-gray-200 underline decoration-indigo-500 decoration-1 decoration-dashed underline-offset-4">
+                <span className="mr-4 font-medium text-sm sm:text-lg text-gray-200 underline decoration-spotify-green-dark decoration-1 decoration-dashed underline-offset-4">
                   {roomID}
                 </span>
                 <span
                   onClick={copyToClipBoard}
-                  className="p-1 bg-indigo-500/50 hover:bg-indigo-500 rounded-lg flex items-center duration-300 cursor-pointer"
+                  className="p-1 bg-spotify-green-dark/50 hover:bg-spotify-green rounded-lg flex items-center duration-300 cursor-pointer"
                 >
                   <FiCopy className="mr-1" />
                   copy

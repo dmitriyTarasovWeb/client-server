@@ -7,7 +7,7 @@ import '@fontsource/montserrat/700.css';
 const WindowHeader = () => {
   const { currentUser } = useSelector((state: RootState) => state.user);
   return (
-    <div className="hidden sm:flex w-full bg-spotify-black bg-spotify-gradient justify-between items-center p-3 border-b border-spotify-grey">
+    <div className="hidden sm:flex w-full justify-between items-center p-3 border-b border-spotify-grey">
       <div className="flex items-center">
         <Image
           src="/white-title.png"

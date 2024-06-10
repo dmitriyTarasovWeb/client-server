@@ -1,27 +1,26 @@
 import React from "react";
-import { IoChatboxEllipsesOutline, IoChatboxEllipses } from "react-icons/io5";
 import {
-  RiLoginBoxLine,
-  RiLoginBoxFill,
   RiAddBoxLine,
   RiAddBoxFill,
 } from "react-icons/ri";
+import { IoChatbubblesOutline, IoChatbubblesSharp } from "react-icons/io5";
+import { IoPeopleOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import MobileNavbarLinkButton from "./MobileNavbarLinkButton";
 
 const MobileNavbar = () => {
   return (
-    <div className="sm:hidden flex w-full h-16 backdrop-blur-md bg-indigo-700/50 border border-x-0 border-b-0 border-indigo-300/30 text-gray-800/50 text-4xl items-center justify-evenly px-1 z-20 sticky">
+    <div className="sm:hidden flex w-full h-16 backdrop-blur-md bg-spotify-black-grey/50 border border-x-0 border-b-0 border-spotify-grey/30 text-gray-800/50 text-4xl items-center justify-evenly px-1 z-20 sticky">
       <MobileNavbarLinkButton
         to="/"
-        IdleIcon={<IoChatboxEllipsesOutline />}
-        ActiveIcon={<IoChatboxEllipses />}
+        IdleIcon={<IoChatbubblesOutline />}
+        ActiveIcon={<IoChatbubblesSharp />}
       />
       <MobileNavbarLinkButton
         to="/join"
-        IdleIcon={<RiLoginBoxLine />}
-        ActiveIcon={<RiLoginBoxFill />}
+        IdleIcon={<IoPeopleOutline />}
+        ActiveIcon={<IoPeopleOutline />} // Можете оставить также, или выбрать другую активную иконку
       />
       <MobileNavbarLinkButton
         to="/create"

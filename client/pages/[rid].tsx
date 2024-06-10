@@ -261,7 +261,7 @@ const ChatRoomPage = () => {
   return (
     <div className="h-full w-full flex justify-center items-center">
       <Head>
-        <title>{getRoomQuery.data?.data.name} | Curie</title>
+        <title>{getRoomQuery.data?.data.name}</title>
       </Head>
       <div className="h-full hidden md:flex">
         <RoomsList />

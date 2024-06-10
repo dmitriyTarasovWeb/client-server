@@ -1,20 +1,20 @@
 import Lottie from "react-lottie";
-import boyListeningMusicAnimation from "../public/assets/boy_listening_music.json";
+import rocket from "../public/assets/rocket.json";
 
 export default function NoRoom() {
   return (
-    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-spotify-black/70 text-spotify-text font-montserrat border-l border-spotify-grey">
+    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-white/5 text-spotify-text font-montserrat border-l border-spotify-grey">
       <Lottie
         options={{
           loop: true,
           autoplay: true,
-          animationData: boyListeningMusicAnimation,
+          animationData: rocket,
           rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
           },
         }}
-        height={400}
-        width={300}
+        height={250}
+        width={250}
       />
       <div className="flex flex-col items-center mt-8">
         <p className="text-lg text-center mb-4">

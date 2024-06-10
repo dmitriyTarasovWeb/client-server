@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Lottie from "react-lottie";
 import PrimaryButton from "../components/PrimaryButton";
-import girlListeningMusicAnimation from "../public/assets/girl_listening_to_music_lootie.json";
+import visual_anim from "../public/assets/visual_anim.json";
 import { getRoomAPI } from "../services/apiServices";
+import '@fontsource/montserrat/500.css';
 
 
 export default function JoinRoom() {
@@ -40,9 +41,9 @@ export default function JoinRoom() {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-full bg-blue-900/70 p-4 justify-start">
+    <div className="flex flex-col items-center w-full h-full bg-white/5 p-4 justify-start font-montserrat">
       <div className="w-full h-12 sm:h-24 flex items-center">
-        <h1 className="text-gray-200 text-2xl mx-auto sm:text-4xl">
+        <h1 className="text-spotify-text font-semibold text-2xl mx-auto sm:text-4xl">
           Join a Room
         </h1>
       </div>
@@ -51,7 +52,7 @@ export default function JoinRoom() {
           options={{
             loop: true,
             autoplay: true,
-            animationData: girlListeningMusicAnimation,
+            animationData: visual_anim,
             rendererSettings: {
               preserveAspectRatio: "xMidYMid slice",
             },
@@ -59,7 +60,7 @@ export default function JoinRoom() {
           height={230}
           width={250}
         />
-        <p className="px-2 text-center">
+        <p className="px-2 text-center text-spotify-text font-montserrat-300">
           {"Join a Room, 💬 chat and 🎵 vibe on music with your friends"}
         </p>
         <span className="my-5" />
@@ -71,7 +72,7 @@ export default function JoinRoom() {
             if (e.key === "Enter") handleJoinRoom();
           }}
           placeholder="Enter room id to join..."
-          className="p-2 bg-gray-300/10 outline-none border-none outline-2 focus:outline-4 outline-indigo-500/40 focus:outline-indigo-500 rounded-lg sm:text-2xl w-full max-w-sm duration-200"
+          className="p-2 bg-gray-300/10 outline-none border-none outline-2 focus:outline-4 outline-spotify-green-dark/40 focus:outline-spotify-green rounded-lg sm:text-2xl w-full max-w-sm duration-200"
         />
         <span className="my-1" />
         <label className="text-sm text-red-500/80">{validationIssue}</label>

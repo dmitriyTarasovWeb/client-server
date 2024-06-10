@@ -1,11 +1,10 @@
 import React from "react";
-import { IoChatboxEllipsesOutline, IoChatboxEllipses } from "react-icons/io5";
 import {
-  RiLoginBoxLine,
-  RiLoginBoxFill,
   RiAddBoxLine,
   RiAddBoxFill,
 } from "react-icons/ri";
+import { IoChatbubblesOutline, IoChatbubblesSharp } from "react-icons/io5";
+import { IoPeopleOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import NavbarLinkButton from "./NavbarLinkButton";
@@ -13,17 +12,17 @@ import NavbarLinkButton from "./NavbarLinkButton";
 const DesktopNavbar = () => {
   return (
     <div
-      className={"hidden sm:flex w-16 h-full rounded-bl-lg backdrop-blur-md bg-spotify-black border border-l-0 border-y-0 border-spotify-grey text-spotify-text/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
+      className={"hidden sm:flex w-16 h-full rounded-bl-lg  border border-l-0 border-l-0 border-y-0 border-spotify-grey text-spotify-text/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
     >
       <NavbarLinkButton
         to="/"
-        IdleIcon={<IoChatboxEllipsesOutline />}
-        ActiveIcon={<IoChatboxEllipses />}
+        IdleIcon={<IoChatbubblesOutline />}
+        ActiveIcon={<IoChatbubblesSharp />}
       />
       <NavbarLinkButton
         to="/join"
-        IdleIcon={<RiLoginBoxLine />}
-        ActiveIcon={<RiLoginBoxFill />}
+        IdleIcon={<IoPeopleOutline />}
+        ActiveIcon={<IoPeopleOutline />} // Можете оставить также, или выбрать другую активную иконку
       />
       <NavbarLinkButton
         to="/create"
