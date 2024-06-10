@@ -17,10 +17,10 @@ connectMongoDB();
 const port = process.env.PORT || 5000;
 const app = express();
 
-let allowedOrigin = "http://localhost:5000";
+let allowedOrigin = "http://localhost:3000";
 
 if (process.env.NODE_ENV === "production") {
-  allowedOrigin = "http://localhost:5000";
+  allowedOrigin = "http://localhost:3000";
 }
 
 const corsOptions = {
