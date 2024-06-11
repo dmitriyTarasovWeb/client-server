@@ -115,7 +115,7 @@ export default function CreateRoom() {
             <label className="text-sm text-red-500">
               {validationIssue.roomName}
             </label>
-            <span className="2xl:h-8 h-3" />
+            <span className="2xl:h-6 h-3" />
             <h1 className="font-medium">Choose an image for room</h1>
             <span className="h-3" />
             <ChooseAvatar
@@ -123,7 +123,7 @@ export default function CreateRoom() {
               sprites={"adventurer-neutral"}
               marble
             />
-            <span className="2xl:h-8 h-3" />
+            <span className="2xl:h-6 h-3" />
             <div className="flex flex-col items-start">
               <label className="font-medium mb-2">Room ID</label>
               <div className="w-full flex">
@@ -143,7 +143,7 @@ export default function CreateRoom() {
             <label className="text-sm text-white/40">
               Note: This Room ID will be used when joining room
             </label>
-            <span className="2xl:h-8 h-3" />
+            <span className="2xl:h-6 h-3" />
             <span className="w-full flex justify-center">
               <PrimaryButton type="submit">CREATE ROOM</PrimaryButton>
             </span>
