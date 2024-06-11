@@ -93,7 +93,7 @@ export default function CreateRoom() {
         style={{ height: `${chatsHeight + 40}px` }}
         className="w-full overflow-y-auto p-4 pb-0 pt-1 lg:p-4"
       >
-        <div className="w-full h-12 sm:h-24 flex justify-center items-center">
+        <div className="w-full h-12 sm:h-20 2xl:h-16 flex justify-center items-center">
           <h1 className="text-spotify-text font-semibold text-2xl sm:text-4xl py-1">
             Create a Room
           </h1>
@@ -115,7 +115,7 @@ export default function CreateRoom() {
             <label className="text-sm text-red-500">
               {validationIssue.roomName}
             </label>
-            <span className="2xl:h-6 h-3" />
+            <span className="2xl:h-6 h-0" />
             <h1 className="font-medium">Choose an image for room</h1>
             <span className="h-3" />
             <ChooseAvatar
@@ -123,7 +123,7 @@ export default function CreateRoom() {
               sprites={"adventurer-neutral"}
               marble
             />
-            <span className="2xl:h-6 h-3" />
+            <span className="2xl:h-6 h-0" />
             <div className="flex flex-col items-start">
               <label className="font-medium mb-2">Room ID</label>
               <div className="w-full flex">
@@ -143,7 +143,7 @@ export default function CreateRoom() {
             <label className="text-sm text-white/40">
               Note: This Room ID will be used when joining room
             </label>
-            <span className="2xl:h-6 h-3" />
+            <span className="2xl:h-6 h-0" />
             <span className="w-full flex justify-center">
               <PrimaryButton type="submit">CREATE ROOM</PrimaryButton>
             </span>
