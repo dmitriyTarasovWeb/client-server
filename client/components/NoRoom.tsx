@@ -1,14 +1,14 @@
 import Lottie from "react-lottie";
-import rocket from "../public/assets/rocket.json";
+import plane from "../public/assets/plane.json";
 
 export default function NoRoom() {
   return (
-    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-white/5 text-spotify-text font-montserrat border-l border-spotify-grey">
+    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-white/10 text-spotify-text font-montserrat border-l border-spotify-grey">
       <Lottie
         options={{
           loop: true,
           autoplay: true,
-          animationData: rocket,
+          animationData: plane,
           rendererSettings: {
             preserveAspectRatio: "xMidYMid slice",
           },

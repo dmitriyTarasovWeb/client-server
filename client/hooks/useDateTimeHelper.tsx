@@ -52,15 +52,12 @@ const formatDate = (date: Date) => {
 
 const formatTime = (date: Date) => {
   const hours =
-    date.getHours() > 12
-      ? date.getHours() - 12
-      : date.getHours() < 10
-      ? "0" + date.getHours()
-      : date.getHours();
+    date.getHours()
+   
   const minutes =
-    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-  const am_pm = date.getHours() >= 12 ? "pm" : "am";
-  return hours + ":" + minutes + " " + am_pm;
+    date.getMinutes() 
+
+  return hours + ":" + minutes;
 };
 
 const useDateTimeHelper = () => {

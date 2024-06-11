@@ -12,7 +12,7 @@ import NavbarLinkButton from "./NavbarLinkButton";
 const DesktopNavbar = () => {
   return (
     <div
-      className={"hidden sm:flex w-16 h-full rounded-bl-lg  border border-l-0 border-l-0 border-y-0 border-spotify-grey text-spotify-text/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
+      className={"hidden sm:flex w-16 h-full bg-spotify-white/10 rounded-bl-lg  border border-l-0 border-l-0 border-y-0 border-spotify-grey text-spotify-text/50 text-4xl flex-col items-center justify-even/50 px-0".concat()}
     >
       <NavbarLinkButton
         to="/"
