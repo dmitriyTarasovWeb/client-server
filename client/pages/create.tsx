@@ -101,7 +101,7 @@ export default function CreateRoom() {
         <div className="w-full flex flex-col items-center">
           <div className="w-full max-w-lg flex flex-col gap-2 items-center justify-center">
             <label className="font-medium">Write a room name</label>
-            <span className="h-3" />
+            <span className="h-3 sm:h-0" />
             <input
               value={roomName}
               onChange={handleChange}
@@ -111,13 +111,13 @@ export default function CreateRoom() {
               placeholder="Enter room name..."
               className="sm:p-2 p-1 bg-gray-300/10 outline-none border-none outline-3 focus:outline-4 outline-spotify-green-dark/40 focus:outline-spotify-green rounded-lg sm:text-2xl text-lg w-full duration-200"
             />
-            <span className="h-2" />
+            <span className="h-2 sm:h-0" />
             <label className="text-sm text-red-500">
               {validationIssue.roomName}
             </label>
             <span className="2xl:h-0 h-0" />
             <h1 className="font-medium">Choose an image for room</h1>
-            <span className="h-3" />
+            <span className="h-3 sm:h-0" />
             <ChooseAvatar
               setAvatar={setAvatar}
               sprites={"adventurer-neutral"}
@@ -139,7 +139,7 @@ export default function CreateRoom() {
                 </span>
               </div>
             </div>
-            <span className="h-2" />
+            <span className="h-2 sm:h-0" />
             <label className="text-sm text-white/40">
               Note: This Room ID will be used when joining room
             </label>
