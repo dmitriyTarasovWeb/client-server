@@ -52,7 +52,6 @@ const Home: NextPage = () => {
           <ChooseAvatar
             previousAvatar={currentUser?.avatarUrl}
             setAvatar={setAvatarUrl}
-            sprites="miniavs"
           />
         </div>
         <div className="w-full px-4 py-3 mb-6 mt-4 rounded-lg shadow-md">

@@ -19,15 +19,6 @@ const WindowHeader = () => {
           SpotiChat
         </span>
       </div>
-      {currentUser ? (
-        <img
-          src={currentUser?.avatarUrl}
-          alt=""
-          className="h-7 w-7 rounded-full"
-        />
-      ) : (
-        <></>
-      )}
     </div>
   );
 };

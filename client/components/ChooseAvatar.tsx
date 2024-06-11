@@ -1,79 +1,61 @@
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { BiRefresh } from "react-icons/bi";
 import useGenerateRandomAvatar from "../hooks/useGenerateRandomAvatar";
+import useGenerateRandomString from "../hooks/useGenerateRandomString";
 import ChooseAvatarButton from "./ChooseAvatarButton";
 import SmallButton from "./SmallButton";
-import useGenerateRandomMarble from "../hooks/useGenerateRandomMarble";
 
 const ChooseAvatar = ({
   setAvatar,
-  sprites,
   previousAvatar,
-  marble,
+  marble
 }: {
   setAvatar: (avatar_url: string) => void;
-  sprites: string;
   previousAvatar?: string;
   marble?: boolean;
 }) => {
   const generateRandomAvatar = useGenerateRandomAvatar();
-  const generateRandomMarble = useGenerateRandomMarble();
+  const generateRandomString = useGenerateRandomString(16);
 
   const placeholderAvatar = "/assets/avatar_placeholder.png";
+
+  const loadAvatars = () => {
+    const newAvatars = Array.from({ length: 8 }, (_, i) =>
+      i === 0 && previousAvatar ? previousAvatar : marble ? generateRandomString : generateRandomAvatar()
+    );
+    setAvatars(newAvatars);
+  };
+
+
+  useEffect(() => {
+    loadAvatars();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [avatars, setAvatars] = useState<string[]>([]);
+  const [selectedIdx, setSelectedIdx] = useState(0);
+
   const handleAvatarClick = (event: any) => {
     event.preventDefault();
     const idx = parseInt(event.target.id);
     if (idx >= 0 && idx < 8) setSelectedIdx(idx);
   };
-  const [avatars, setAvatats] = useState([
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-    placeholderAvatar,
-  ]);
-  const handleRefreshAvatars = (event: any) => {
-    event.preventDefault();
-    loadAvatars();
-  };
-  const loadAvatars = () => {
-    const newAvatars = ["", "", "", "", "", "", "", ""];
-    if (previousAvatar) {
-      newAvatars[0] = previousAvatar;
-      for (let i = 1; i < 8; i++) {
-        newAvatars[i] = marble
-          ? generateRandomMarble()
-          : generateRandomAvatar(sprites);
-      }
-    } else {
-      for (let i = 0; i < 8; i++) {
-        newAvatars[i] = marble
-          ? generateRandomMarble()
-          : generateRandomAvatar(sprites);
-      }
-    }
-    setAvatats([...newAvatars]);
-  };
-  useEffect(() => {
-    loadAvatars();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  const [selectedIdx, setSelectedIdx] = useState(0);
 
   useEffect(() => {
     setAvatar(avatars[selectedIdx]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedIdx, avatars]);
 
+  const handleRefreshAvatars = (event: any) => {
+    event.preventDefault();
+    loadAvatars();
+  };
+
   return (
     <div className="flex flex-col items-center px-4">
       <div className="w-full flex flex-col sm:flex-row items-center">
         <img
-          src={avatars[selectedIdx]}
+          src={avatars[selectedIdx] || placeholderAvatar}
           alt=""
           className="h-24 sm:h-36 my-[0.5rem] rounded-full"
         />
