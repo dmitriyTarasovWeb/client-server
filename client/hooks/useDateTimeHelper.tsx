@@ -54,9 +54,12 @@ const formatTime = (date: Date) => {
   const hours =
     date.getHours()
    
+
+    
   const minutes =
     date.getMinutes() 
 
+  if(minutes < 10) return hours + ":0" + minutes;
   return hours + ":" + minutes;
 };
 
