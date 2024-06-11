@@ -47,7 +47,7 @@ export default function JoinRoom() {
           Join a Room
         </h1>
       </div>
-      <div className="h-full w-full rounded-br-lg flex flex-col items-center justify-start">
+      <div className="h-full w-full rounded-br-lg flex flex-col items-center justify-start mt-10">
         <Lottie
           options={{
             loop: true,
@@ -57,10 +57,11 @@ export default function JoinRoom() {
               preserveAspectRatio: "xMidYMid slice",
             },
           }}
-          height={230}
-          width={250}
+          height={150}
+          width={120}
+         
         />
-        <p className="px-2 text-center text-spotify-text font-montserrat-300">
+        <p className="px-3 text-center text-spotify-text font-montserrat-300 mt-10">
           {"Join a Room, 💬 chat and 🎵 vibe on music with your friends"}
         </p>
         <span className="my-5" />

@@ -279,7 +279,7 @@ const ChatRoomPage = () => {
         >
           <div className="w-full h-full flex flex-col">
             <ChatRoomHeader room={getRoomQuery.data?.data} />
-            <div className="h-full bg-blue-900/70 w-full pt-2 px-0 pb-2 sm:py-4 flex flex-col justify-start relative z-10">
+            <div className="h-full bg-spotify-white/ w-full pt-2 px-0 pb-2 sm:py-4 flex flex-col justify-start relative z-10">
               <div
                 ref={messagesSectionRef}
                 style={{ height: `${chatsHeight - 10}px`  }}

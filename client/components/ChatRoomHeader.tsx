@@ -139,7 +139,7 @@ const ChatRoomHeader = ({ room }: { room: RoomShort }) => {
   }, [socket]);
 
   return (
-    <div className="w-full h-16 border-b border-indigo-300/30 bg-blue-900/90 px-2 py-1 flex items-center">
+    <div className="w-full h-16  border-grey-300/30 bg-spotify-white/20 px-3 py-1 flex items-center pt-3 pb-3 rounded-tr-lg">
       <button
         className="text-2xl hover:text-white duration-100 sm:hidden"
         onClick={handleBackClick}
