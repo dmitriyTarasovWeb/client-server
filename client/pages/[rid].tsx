@@ -282,7 +282,7 @@ const ChatRoomPage = () => {
             <div className="h-full bg-blue-900/70 w-full pt-2 px-0 pb-2 sm:py-4 flex flex-col justify-start relative z-10">
               <div
                 ref={messagesSectionRef}
-                style={{ height: `${chatsHeight}px` }}
+                style={{ height: `${chatsHeight - 10}px`  }}
                 className="w-full px-3 flex flex-col overflow-x-hidden overflow-y-scroll mb-2 relative z-10"
               >
                 {messageList}
