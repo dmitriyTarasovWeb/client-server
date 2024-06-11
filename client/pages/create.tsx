@@ -90,7 +90,7 @@ export default function CreateRoom() {
     <div className="w-full h-full rounded-br-lg flex flex-col justify-start items-center gap-2 bg-white/5 font-montserrat">
       <form
         onSubmit={handleSubmit}
-        style={{ height: `${chatsHeight}px` }}
+        style={{ height: `${chatsHeight + 40}px` }}
         className="w-full overflow-y-auto p-4 pb-0 pt-1 sm:p-4"
       >
         <div className="w-full h-12 sm:h-24 flex justify-center items-center">
