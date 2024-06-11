@@ -91,7 +91,7 @@ export default function CreateRoom() {
       <form
         onSubmit={handleSubmit}
         style={{ height: `${chatsHeight}px` }}
-        className="w-full overflow-y-auto p-4 pb-12"
+        className="w-full overflow-y-auto p-4 pb-0 pt-1 sm:p-4"
       >
         <div className="w-full h-12 sm:h-24 flex justify-center items-center">
           <h1 className="text-spotify-text font-semibold text-2xl sm:text-4xl py-1">
