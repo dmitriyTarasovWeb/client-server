@@ -46,15 +46,16 @@ const Home: NextPage = () => {
       </Head>
       <h1 className="text-4xl font-bold mb-8 text-center text-gradient from-blue-500 to-indigo-500">CHOOSE YOUR IDENTITY</h1>
       <div className="w-full max-w-lg flex flex-col justify-center items-center">
-        <div className="w-full px-4 py-3 text-center sm:text-left border-2 border-dashed border-gray-300 rounded-lg shadow-md">
+        <div className="w-full px-4 py-3 text-center sm:text-left rounded-lg shadow-md">
+          {/* border-2 border-dashed border-gray-300 border-2 border-dashed border-gray-300 */}
           <label className="font-medium text-xl">Choose an avatar</label>
           <ChooseAvatar
             previousAvatar={currentUser?.avatarUrl}
             setAvatar={setAvatarUrl}
-            sprites="miniavs" 
+            sprites="miniavs"
           />
         </div>
-        <div className="w-full px-4 py-3 mb-6 mt-4 border-2 border-dashed border-gray-300 rounded-lg shadow-md">
+        <div className="w-full px-4 py-3 mb-6 mt-4 rounded-lg shadow-md">
           <label className="font-medium text-xl">Choose a name</label>
           <div className="mt-2 w-full relative flex justify-start items-center">
             <input

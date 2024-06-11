@@ -29,7 +29,7 @@ const LayoutWrapper: FC<LayoutWrapperProps> = ({ children }) => {
         autoPlay
         loop
         muted
-        poster="/assets/bg-static.jpg"
+        poster="/assets/bg-static.png"
         className="w-auto h-full min-w-[100%] min-h-[100%] fixed z-[-10] object-cover"
       >
         <source
