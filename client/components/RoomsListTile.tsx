@@ -6,7 +6,7 @@ import '@fontsource/montserrat/500.css';
 const RoomsListTile: FC<{ room: RoomShort }> = ({ room }) => {
   return (
     <Link href={`/${room.rid}`}>
-      <div className="h-16 w-full lg:w-60 flex items-center justify-start sm:px-2 py-2 px-4 border border-t-0 border-r-0 border-l-0 border-spotify-white/20 md:border-b-0 lg:border-b text-white-400 text-lg hover:bg-gray-500/10 cursor-pointer rounded-lg">
+      <div className="h-16 w-full lg:w-60 flex items-center justify-start sm:px-2 py-2 px-4  shadow-md border-l-0 border-spotify-white/20 text-white-400 text-lg hover:bg-gray-500/10 cursor-pointer rounded-lg">
         <img
           alt="room"
           src={room.image_url}
