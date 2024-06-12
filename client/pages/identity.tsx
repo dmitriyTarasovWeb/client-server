@@ -10,7 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUser, setUser } from "../store/userSlice";
 import { useRouter } from "next/router";
 import { RootState } from "../store";
+
 import useGenerateUniqueRandomString from "../hooks/useGenerateUniqueRandomString";
+
+import {
+  useSessionContext,
+  useSupabaseClient,
+} from "@supabase/auth-helpers-react";
+
+import useAuthModal from "../hooks/useAuthModal";
 
 const Home: NextPage = () => {
   const { currentUser } = useSelector((state: RootState) => state.user);
@@ -24,13 +32,24 @@ const Home: NextPage = () => {
   const router = useRouter();
   const generateUID = useGenerateUniqueRandomString();
 
+  const { session } = useSessionContext();
+
+  const { onOpen } = useAuthModal();
+
   const handleGoToChat = () => {
+
+    if(!session) { onOpen(); return }
+
+    const accessToken = session.access_token;
+
     if (avatarUrl !== "" && name !== "") {
       if (currentUser) {
         dispatch(setUser({ name, avatarUrl }));
         successToast("Identity changed successfully");
       } else {
-        dispatch(createUser({ uid: generateUID(), name, avatarUrl }));
+//////////////////// сделать прверку если есть не создавать пользователя
+        dispatch(createUser({ uid: accessToken, name, avatarUrl }));
+///////////////////////
         successToast("Identity created successfully");
       }
       router.push("/");
@@ -66,8 +85,8 @@ const Home: NextPage = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleGoToChat();
               }}
-              className="peer pl-9 bg-transparent appearance-none text-xl outline-none autofill:bg-none focus:outline-none border-b-2 border-white w-full py-2 rounded-md duration-100 text-white"
-              placeholder="John Doe"
+              className=" pl-10 peer pl-9 bg-transparent appearance-none text-xl outline-none autofill:bg-none focus:outline-none border-b-2 border-white w-full py-2 rounded-md duration-100 text-white"
+              placeholder="Егор Димочкин"
             />
             <IoPersonOutline className="absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl duration-100 text-white" />
             <IoPerson className="hidden absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl text-indigo-500 duration-100" />

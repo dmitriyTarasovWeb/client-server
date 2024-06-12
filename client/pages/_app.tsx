@@ -9,27 +9,37 @@ import SocketProvider from "../providers/socketProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import YoutubeEmbedPlayer from "../components/YoutubeEmbedPlayer";
 import RoomMusicProvider from "../providers/roomMusicProvider";
+import SupabaseProvider from "../providers/SupabaseProvider";
+
+import ModalProvider from "../providers/ModalProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <PersistGate loading={null} persistor={persistoor}>
-          <SocketProvider>
-            <RoomMusicProvider>
-              <ProtectedRouteWrapper>
-                <LayoutWrapper>
-                  <Component {...pageProps} />
-                  <YoutubeEmbedPlayer />
-                </LayoutWrapper>
-              </ProtectedRouteWrapper>
-            </RoomMusicProvider>
-          </SocketProvider>
-        </PersistGate>
-      </QueryClientProvider>
-    </Provider>
+    
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+         <PersistGate loading={null} persistor={persistoor}>
+         <SupabaseProvider>
+          
+            <ModalProvider/>
+            <SocketProvider>
+              <RoomMusicProvider>
+               <ProtectedRouteWrapper>
+                 <LayoutWrapper>
+                   <Component {...pageProps} />
+                   <YoutubeEmbedPlayer />
+                  </LayoutWrapper>
+               </ProtectedRouteWrapper>
+              </RoomMusicProvider>
+            </SocketProvider>
+           
+            </SupabaseProvider>
+          </PersistGate>
+        </QueryClientProvider>
+      </Provider>
+   
   );
 }
 
