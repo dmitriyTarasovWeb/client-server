@@ -2,17 +2,16 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FiCopy } from "react-icons/fi";
-import ChooseAvatar from "../components/ChooseAvatar";
+import ChooseRoomPhoto from "../components/ChooseRoomPhoto";
 import PrimaryButton from "../components/PrimaryButton";
 import useGenerateUniqueRandomString from "../hooks/useGenerateUniqueRandomString";
 import useToast from "../hooks/useToast";
 import useCreateRoom from "../hooks/useCreateRoom";
 import '@fontsource/montserrat/500.css';
-// import useSocket from "../hooks/useSocket";
 
 export default function CreateRoom() {
   const [roomName, setRoomName] = useState<string>("");
-  const [avatar, setAvatar] = useState<string>("");
+  const [roomPhoto, setRoomPhoto] = useState<string>("");
   const generateUniqueRandomString = useGenerateUniqueRandomString();
   const [roomID, setRoomID] = useState<string>("");
   const router = useRouter();
@@ -28,8 +27,6 @@ export default function CreateRoom() {
     successToast("Room created successfully");
     router.replace(`/${roomID}`);
   });
-
-    // const { socket } = useSocket();
 
   const copyToClipBoard = () => {
     navigator.clipboard.writeText(roomID);
@@ -51,7 +48,7 @@ export default function CreateRoom() {
     } else if (roomName.length < 3) {
       setValidationIssue({
         ...validationIssue,
-        roomName: "Room name can't be less than 3 charachters",
+        roomName: "Room name can't be less than 3 characters",
       });
       return false;
     } else {
@@ -68,7 +65,7 @@ export default function CreateRoom() {
       createRoomMutation.mutate({
         rid: roomID,
         name: roomName,
-        image_url: avatar,
+        image_url: roomPhoto,
       });
     }
   };
@@ -116,12 +113,12 @@ export default function CreateRoom() {
               {validationIssue.roomName}
             </label>
             <span className="2xl:h-0 h-0" />
-            <h1 className="font-medium">Choose an image for room</h1>
+            <h1 className="font-medium">Choose an image for the room</h1>
             <span className="h-3 sm:h-0" />
-            <ChooseAvatar
-              setAvatar={setAvatar}
-              sprites={"adventurer-neutral"}
-              marble
+            <ChooseRoomPhoto
+              setRoomPhoto={setRoomPhoto}
+              previousRoomPhoto={""} // Можно передать URL предыдущего фото, если есть
+              marble // Параметр для генерации случайных изображений
             />
             <span className="2xl:h-0 h-0" />
             <div className="flex flex-col items-start">

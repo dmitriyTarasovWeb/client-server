@@ -16,6 +16,8 @@
     "@mui/styled-engine-sc": "^5.11.0",
     "@radix-ui/react-dialog": "^1.0.5",
     "@reduxjs/toolkit": "^1.9.1",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/auth-helpers-react": "^0.5.0",
     "@supabase/supabase-js": "^2.43.4",
     "@tanstack/react-query": "^4.24.10",
     "axios": "^1.7.2",

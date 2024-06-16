@@ -17,12 +17,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
   return (
-    
+
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
          <PersistGate loading={null} persistor={persistoor}>
          <SupabaseProvider>
-          
+
             <ModalProvider/>
             <SocketProvider>
               <RoomMusicProvider>
@@ -34,12 +34,12 @@ function MyApp({ Component, pageProps }: AppProps) {
                </ProtectedRouteWrapper>
               </RoomMusicProvider>
             </SocketProvider>
-           
+
             </SupabaseProvider>
           </PersistGate>
         </QueryClientProvider>
       </Provider>
-   
+
   );
 }
 
