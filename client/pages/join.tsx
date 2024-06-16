@@ -62,7 +62,7 @@ export default function JoinRoom() {
          
         />
         <p className="px-3 text-center text-spotify-text font-montserrat-300 mt-10">
-          {"Join a Room, 💬 chat and 🎵 vibe on music with your friends"}
+          {"Join a Room, chat and vibe on music with your friends!"}
         </p>
         <span className="my-5" />
         <input

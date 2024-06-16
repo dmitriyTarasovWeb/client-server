@@ -85,7 +85,7 @@ const Home: NextPage = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleGoToChat();
               }}
-              className=" pl-10 peer pl-9 bg-transparent appearance-none text-xl outline-none autofill:bg-none focus:outline-none border-b-2 border-white w-full py-2 rounded-md duration-100 text-white"
+              className=" pl-16 peer pl-9 bg-transparent appearance-none text-xl outline-none autofill:bg-none focus:outline-none border-b-2 border-white w-full py-2 rounded-md duration-100 text-white"
               placeholder="Егор Димочкин"
             />
             <IoPersonOutline className="absolute left-2 top-1/2 transform -translate-y-1/2 text-3xl duration-100 text-white" />

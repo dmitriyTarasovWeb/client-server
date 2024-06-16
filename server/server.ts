@@ -49,5 +49,5 @@ server.prependListener("request", (req, res) => {
 });
 
 server.listen(port, () => {
-  console.log("CURIE SERVER LISTENING ON PORT 5000...");
+  console.log("SPOTICHAT SERVER LISTENING ON PORT 5000...");
 });

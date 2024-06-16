@@ -1,7 +1,7 @@
 {
-  "name": "curie-server",
+  "name": "server",
   "version": "1.22.22",
-  "description": "Server for Curie-app",
+  "description": "Server-app",
   "main": "dist/server.js",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build"
   },
-  "author": "curiousyuvi",
+  "author": "dmitriytarasovweb",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",

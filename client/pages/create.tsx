@@ -23,7 +23,7 @@ export default function CreateRoom() {
   const [validationIssue, setValidationIssue] = useState({ roomName: "" });
   const [chatsHeight, setChatsHeight] = useState(0);
 
-  const { successToast } = useToast();
+  const { successToast, errorToast } = useToast();
 
   const createRoomMutation = useCreateRoom(() => {
     successToast("Room created successfully");
@@ -43,16 +43,12 @@ export default function CreateRoom() {
 
   const validate = () => {
     if (roomName === "") {
-      setValidationIssue({
-        ...validationIssue,
-        roomName: "Room name can't be empty",
-      });
+
+      errorToast("Room name can't be empty")
       return false;
     } else if (roomName.length < 3) {
-      setValidationIssue({
-        ...validationIssue,
-        roomName: "Room name can't be less than 3 characters",
-      });
+
+      errorToast("Room name can't be less than 3 characters")
       return false;
     } else {
       setValidationIssue({
