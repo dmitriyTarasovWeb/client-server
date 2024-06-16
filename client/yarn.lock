@@ -898,9 +898,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-lottie@^1.2.6":
+"@types/react-lottie@^1.2.10":
   version "1.2.10"
-  resolved "https://registry.npmjs.org/@types/react-lottie/-/react-lottie-1.2.10.tgz"
+  resolved "https://registry.yarnpkg.com/@types/react-lottie/-/react-lottie-1.2.10.tgz#220f68a2dfa0d4b131ab4930e8bf166b9442c68c"
   integrity sha512-rCd1p3US4ELKJlqwVnP0h5b24zt5p9OCvKUoNpYExLqwbFZMWEiJ6EGLMmH7nmq5V7KomBIbWO2X/XRFsL0vCA==
   dependencies:
     "@types/react" "*"
@@ -2983,9 +2983,9 @@ react-is@^18.0.0, react-is@^18.2.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
 
-react-lottie@^1.2.3:
+react-lottie@^1.2.4:
   version "1.2.4"
-  resolved "https://registry.npmjs.org/react-lottie/-/react-lottie-1.2.4.tgz"
+  resolved "https://registry.yarnpkg.com/react-lottie/-/react-lottie-1.2.4.tgz#999ccabff8afc82074588bc50bd75be6f8945161"
   integrity sha512-kBGxI+MIZGBf4wZhNCWwHkMcVP+kbpmrLWH/SkO0qCKc7D7eSPcxQbfpsmsCo8v2KCBYjuGSou+xTqK44D/jMg==
   dependencies:
     babel-runtime "^6.26.0"
