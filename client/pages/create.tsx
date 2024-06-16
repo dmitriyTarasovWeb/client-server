@@ -7,12 +7,14 @@ import PrimaryButton from "../components/PrimaryButton";
 import useGenerateUniqueRandomString from "../hooks/useGenerateUniqueRandomString";
 import useToast from "../hooks/useToast";
 import useCreateRoom from "../hooks/useCreateRoom";
+import useGenerateRandomPhoto from "../hooks/useGenerateRandomPhoto"; // Import the new hook
 import '@fontsource/montserrat/500.css';
 
 export default function CreateRoom() {
   const [roomName, setRoomName] = useState<string>("");
   const [roomPhoto, setRoomPhoto] = useState<string>("");
   const generateUniqueRandomString = useGenerateUniqueRandomString();
+  const generateRandomPhoto = useGenerateRandomPhoto(); // Use the new hook
   const [roomID, setRoomID] = useState<string>("");
   const router = useRouter();
   const handleChange = (e: any) => {
@@ -35,6 +37,7 @@ export default function CreateRoom() {
 
   useEffect(() => {
     setRoomID(generateUniqueRandomString());
+    setRoomPhoto(generateRandomPhoto()); // Set a random photo on component mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,6 +86,8 @@ export default function CreateRoom() {
     };
   }, []);
 
+
+  //нужно фиксануть самосоздание при выборе аватара
   return (
     <div className="w-full h-full rounded-br-lg flex flex-col justify-start items-center gap-2 bg-white/5 font-montserrat">
       <form
@@ -117,7 +122,7 @@ export default function CreateRoom() {
             <span className="h-3 sm:h-0" />
             <ChooseRoomPhoto
               setRoomPhoto={setRoomPhoto}
-              previousRoomPhoto={""} // Можно передать URL предыдущего фото, если есть
+              previousRoomPhoto={roomPhoto} // Pass the initial random photo
               marble // Параметр для генерации случайных изображений
             />
             <span className="2xl:h-0 h-0" />
