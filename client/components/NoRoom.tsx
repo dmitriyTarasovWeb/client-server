@@ -21,7 +21,7 @@ export default function NoRoom() {
           Immerse yourself in music and chat with your gang in Chat Rooms
         </p>
         <div className="flex items-center">
-          <span role="img" aria-label="pointer" className="text-xl mr-2">👈️</span>
+          <span role="img" aria-label="pointer" className="text-xl mr-2"></span>
           <p className="text-lg">Open a Room from the left</p>
         </div>
       </div>

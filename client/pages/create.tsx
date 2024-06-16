@@ -10,6 +10,14 @@ import useCreateRoom from "../hooks/useCreateRoom";
 import useGenerateRandomPhoto from "../hooks/useGenerateRandomPhoto"; // Import the new hook
 import '@fontsource/montserrat/500.css';
 
+import useAuthModal from "../hooks/useAuthModal";
+
+import {
+  useSessionContext,
+  useSupabaseClient,
+} from "@supabase/auth-helpers-react";
+
+
 export default function CreateRoom() {
   const [roomName, setRoomName] = useState<string>("");
   const [roomPhoto, setRoomPhoto] = useState<string>("");
@@ -41,6 +49,9 @@ export default function CreateRoom() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const { onOpen } = useAuthModal();
+  const { session } = useSessionContext();
+
   const validate = () => {
     if (roomName === "") {
 
@@ -59,7 +70,13 @@ export default function CreateRoom() {
   };
 
   const handleSubmit = async (e?: any) => {
+    
     e?.preventDefault();
+
+    if(!session) { onOpen(); return }
+    if (localStorage.length === 0) { errorToast("For first create your identity!"); return }
+
+ 
     if (validate()) {
       createRoomMutation.mutate({
         rid: roomID,

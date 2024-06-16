@@ -17,7 +17,6 @@ import {
   useSessionContext,
   useSupabaseClient,
 } from "@supabase/auth-helpers-react";
-
 import useAuthModal from "../hooks/useAuthModal";
 
 const Home: NextPage = () => {
@@ -33,7 +32,6 @@ const Home: NextPage = () => {
   const generateUID = useGenerateUniqueRandomString();
 
   const { session } = useSessionContext();
-
   const { onOpen } = useAuthModal();
 
   const handleGoToChat = () => {

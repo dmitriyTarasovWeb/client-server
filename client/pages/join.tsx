@@ -7,6 +7,15 @@ import { getRoomAPI } from "../services/apiServices";
 import '@fontsource/montserrat/500.css';
 
 
+import useAuthModal from "../hooks/useAuthModal";
+
+import {
+  useSessionContext,
+  useSupabaseClient,
+} from "@supabase/auth-helpers-react";
+
+import useToast from "../hooks/useToast";
+
 export default function JoinRoom() {
   const [roomId, setRoomId] = useState<string>("");
   const [validationIssue, setValidationIssue] = useState<string>("");
@@ -14,6 +23,11 @@ export default function JoinRoom() {
   const handleChange = (e: any) => {
     setRoomId(e.target.value);
   };
+
+  
+  const { onOpen } = useAuthModal();
+  const { session } = useSessionContext();
+  const { successToast, errorToast } = useToast();
 
   const validate = async () => {
     try {
@@ -35,10 +49,15 @@ export default function JoinRoom() {
   };
 
   const handleJoinRoom = async () => {
+
+    if(!session) { onOpen(); return }
+    if (localStorage.length === 0) { errorToast("For first create your identity!"); return }
+
     if (await validate()) {
       router.push(`/${roomId}`);
     }
   };
+
 
   return (
     <div className="flex flex-col items-center w-full h-full bg-white/5 p-4 justify-start font-montserrat">
