@@ -65,7 +65,7 @@ const WindowHeader = () => {
       } else {
       console.log("session is not available yet");
     }
-  }, [session]); 
+  }, [session]);
 
 
   useEffect(() => {
