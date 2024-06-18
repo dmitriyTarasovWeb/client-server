@@ -10,6 +10,14 @@ import useCreateRoom from "../hooks/useCreateRoom";
 import useGenerateRandomPhoto from "../hooks/useGenerateRandomPhoto"; // Import the new hook
 import '@fontsource/montserrat/500.css';
 
+import useAuthModal from "../hooks/useAuthModal";
+
+import {
+  useSessionContext,
+  useSupabaseClient,
+} from "@supabase/auth-helpers-react";
+
+
 export default function CreateRoom() {
   const [roomName, setRoomName] = useState<string>("");
   const [roomPhoto, setRoomPhoto] = useState<string>("");
@@ -23,7 +31,7 @@ export default function CreateRoom() {
   const [validationIssue, setValidationIssue] = useState({ roomName: "" });
   const [chatsHeight, setChatsHeight] = useState(0);
 
-  const { successToast } = useToast();
+  const { successToast, errorToast } = useToast();
 
   const createRoomMutation = useCreateRoom(() => {
     successToast("Room created successfully");
@@ -41,18 +49,17 @@ export default function CreateRoom() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const { onOpen } = useAuthModal();
+  const { session } = useSessionContext();
+
   const validate = () => {
     if (roomName === "") {
-      setValidationIssue({
-        ...validationIssue,
-        roomName: "Room name can't be empty",
-      });
+
+      errorToast("Room name can't be empty")
       return false;
     } else if (roomName.length < 3) {
-      setValidationIssue({
-        ...validationIssue,
-        roomName: "Room name can't be less than 3 characters",
-      });
+
+      errorToast("Room name can't be less than 3 characters")
       return false;
     } else {
       setValidationIssue({
@@ -63,7 +70,13 @@ export default function CreateRoom() {
   };
 
   const handleSubmit = async (e?: any) => {
+    
     e?.preventDefault();
+
+    if(!session) { onOpen(); return }
+    if (localStorage.length === 0) { errorToast("For first create your identity!"); return }
+
+ 
     if (validate()) {
       createRoomMutation.mutate({
         rid: roomID,

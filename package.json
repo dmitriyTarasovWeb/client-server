@@ -1,5 +1,5 @@
 {
-  "name": "curie",
+  "name": "spotichat",
   "version": "1.0.0",
   "description": "**🚧 Under development**",
   "main": "index.js",
@@ -12,16 +12,8 @@
     "dev:server": "cd server && npm run dev",
     "dev:client": "cd client && npm run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/curiousyuvi/curie.git"
-  },
-  "author": "curiousyuvi",
+  "author": "dmitriytarasovweb",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/curiousyuvi/curie/issues"
-  },
-  "homepage": "https://github.com/curiousyuvi/curie#readme",
   "devDependencies": {
     "concurrently": "^7.6.0"
   },
@@ -34,6 +26,8 @@
     "@supabase/supabase-js": "^2.43.4",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-lottie": "^1.2.10",
+    "react-lottie": "^1.2.4",
     "tailwind-merge": "^2.3.0"
   }
 }

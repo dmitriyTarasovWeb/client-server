@@ -7,6 +7,7 @@ import musicRoute from "./src/routes/musicRoutes";
 import messageRoute from "./src/routes/messageRoutes";
 import dotenv from "dotenv";
 import connectMongoDB from "./src/services/dbconnect";
+import userRoutes from './src/routes/userRoutes';
 
 global.rooms = new Map();
 
@@ -36,6 +37,8 @@ app.use("/api/room", roomRoute);
 app.use("/api/music", musicRoute);
 app.use("/api/message", messageRoute);
 
+app.use('/api/users', userRoutes);
+
 app.get("/api/hello", (req: Request, res: Response) => {
   res.send("Hello, World!");
 });
@@ -49,5 +52,5 @@ server.prependListener("request", (req, res) => {
 });
 
 server.listen(port, () => {
-  console.log("CURIE SERVER LISTENING ON PORT 5000...");
+  console.log("SPOTICHAT SERVER LISTENING ON PORT 5000...");
 });
