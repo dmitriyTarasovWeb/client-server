@@ -78,7 +78,7 @@ const WindowHeader = () => {
       const currentLocalStorageState = JSON.stringify(localStorage);
       
       if (currentLocalStorageState !== previousLocalStorageState) {
-          // console.log('Привет!');
+          console.log('Привет!');
 
           
 
