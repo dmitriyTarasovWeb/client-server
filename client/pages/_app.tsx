@@ -13,8 +13,14 @@ import SupabaseProvider from "../providers/SupabaseProvider";
 
 import ModalProvider from "../providers/ModalProvider";
 
+
+
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
+  
+  
+
+
 
   return (
 

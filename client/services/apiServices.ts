@@ -3,6 +3,7 @@ import { RoomShort } from "../interfaces/RoomShort";
 import { LastTrack } from "../interfaces/LastTrack";
 import { Message } from "../interfaces/Message";
 
+
 console.log("env", process.env.NEXT_PUBLIC_SERVER_URL);
 
 export const apiInstance = axios.create({
@@ -61,3 +62,9 @@ export const getMessagesAPI = (
 ) => {
   return apiInstance({ url: `/message/${rid}?after=${after}`, method: "GET" });
 };
+
+
+
+
+
+

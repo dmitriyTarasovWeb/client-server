@@ -7,6 +7,8 @@ import Button from "./Button";
 
 import useAuthModal from "../hooks/useAuthModal"
 
+import { useEffect } from "react";
+
 import {
   useSessionContext,
   useSupabaseClient,
@@ -16,6 +18,8 @@ import  router  from "next/router";
 
 import useToast from "../hooks/useToast";
 
+
+import {createUser, getUserByEmail, addRoomToUserByEmail} from "../services/userApi";
 
 const WindowHeader = () => {
   const { currentUser } = useSelector((state: RootState) => state.user);
@@ -38,6 +42,56 @@ const WindowHeader = () => {
       localStorage.clear();
     }
   };
+
+  
+  let email = `john doe`
+
+  useEffect(() => {
+
+      if (session) {
+
+        console.log("session is available:", session.user.email);
+      
+        const email = `${session.user.email}`
+
+        const userData = {
+          email: email,
+          name: "Jon doe"
+        
+        }
+      createUser(userData);
+      
+
+      } else {
+      console.log("session is not available yet");
+    }
+  }, [session]); 
+
+
+  useEffect(() => {
+
+   
+  
+    let previousLocalStorageState = email;
+
+    function checkLocalStorage() {
+      const currentLocalStorageState = JSON.stringify(localStorage);
+      
+      if (currentLocalStorageState !== previousLocalStorageState) {
+          // console.log('Привет!');
+
+          
+
+          previousLocalStorageState = currentLocalStorageState;
+      }
+      
+      setTimeout(checkLocalStorage, 500); // Повторно запускаем проверку через 1 секунду
+    }
+  
+    setTimeout(checkLocalStorage, 1);
+}, []);
+
+
 
   return (
     <div className="hidden sm:flex w-full justify-between items-center p-3 ">

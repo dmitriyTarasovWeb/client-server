@@ -12,6 +12,8 @@ import '@fontsource/montserrat/500.css';
 
 import useAuthModal from "../hooks/useAuthModal";
 
+import {addRoomToUserByEmail} from "../services/userApi";
+
 import {
   useSessionContext,
   useSupabaseClient,
@@ -83,6 +85,23 @@ export default function CreateRoom() {
         name: roomName,
         image_url: roomPhoto,
       });
+
+
+
+      
+      const email = `${session.user.email}`
+
+      const persistRootData = localStorage.getItem('persist:root');
+
+
+
+      const parsedPersistRootData = (JSON.parse(`${persistRootData}`));
+
+
+      const drdwrw = JSON.parse(`${parsedPersistRootData.rooms}`)
+
+      console.log(drdwrw);
+      addRoomToUserByEmail(email, `${persistRootData}`)
     }
   };
 
