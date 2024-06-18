@@ -95,12 +95,10 @@ export default function CreateRoom() {
 
 
 
-      const parsedPersistRootData = (JSON.parse(`${persistRootData}`));
-
-
-      const drdwrw = JSON.parse(`${parsedPersistRootData.rooms}`)
-
-      console.log(drdwrw);
+      // const parsedPersistRootData = (JSON.parse(`${persistRootData}`));
+      // const drdwrw = JSON.parse(`${parsedPersistRootData.rooms}`)
+      // console.log(drdwrw);
+      
       addRoomToUserByEmail(email, `${persistRootData}`)
     }
   };

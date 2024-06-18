@@ -7,7 +7,7 @@ import Button from "./Button";
 
 import useAuthModal from "../hooks/useAuthModal"
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   useSessionContext,
@@ -44,43 +44,70 @@ const WindowHeader = () => {
   };
 
   
-  let email = `john doe`
+  
+
+
+  interface UserData {
+    rooms: string[]; // Пример типа rooms, замените на подходящий тип
+    // Другие свойства, которые могут быть возвращены
+  }
+  
+  const pushDataLocalStorage = (data: string) => {
+    getUserByEmail(data)
+      .then((response: UserData) => { // Здесь используем интерфейс UserData
+        pushLocalStorage(response);
+      });
+  
+    const pushLocalStorage = (response: UserData) => { // И здесь тоже
+
+     
+
+      if(`${response.rooms[0]}` !== `${localStorage.getItem('persist:root')}`){
+
+        localStorage.setItem('persist:root', `${response.rooms[0]}`);
+        
+        router.reload();
+      }
+      
+    };
+  };
+
+
+  const [hasProcessedSession, setHasProcessedSession] = useState(false);
 
   useEffect(() => {
+    if (session && !hasProcessedSession) {
+      console.log("session is available:", session.user.email);
 
-      if (session) {
+      const email = `${session.user.email}`;
 
-        console.log("session is available:", session.user.email);
-      
-        const email = `${session.user.email}`
+      const userData = {
+        email: email,
+        name: "Jon Doe"
+      };
 
-        const userData = {
-          email: email,
-          name: "Jon doe"
-        
-        }
       createUser(userData);
+      pushDataLocalStorage(email);
+      startCheckLocalStorage(email);
       
 
-      } else {
+      setHasProcessedSession(true); // Устанавливаем флаг, чтобы прекратить отслеживание
+    } else if (!session) {
       console.log("session is not available yet");
     }
-  }, [session]);
+  }, [session, hasProcessedSession]); // Добавляем hasProcessedSession как зависимость
 
 
-  useEffect(() => {
+  const startCheckLocalStorage = (email:String) =>{
 
-   
-  
-    let previousLocalStorageState = email;
+    let previousLocalStorageState = JSON.stringify(localStorage);
 
     function checkLocalStorage() {
       const currentLocalStorageState = JSON.stringify(localStorage);
       
       if (currentLocalStorageState !== previousLocalStorageState) {
-          console.log('Привет!');
-
           
+        addRoomToUserByEmail(`${email}`, `${localStorage.getItem('persist:root')}`)
 
           previousLocalStorageState = currentLocalStorageState;
       }
@@ -88,8 +115,8 @@ const WindowHeader = () => {
       setTimeout(checkLocalStorage, 500); // Повторно запускаем проверку через 1 секунду
     }
   
-    setTimeout(checkLocalStorage, 1);
-}, []);
+    checkLocalStorage()
+  }
 
 
 
