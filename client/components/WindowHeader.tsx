@@ -33,14 +33,15 @@ const WindowHeader = () => {
 
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    router.reload();
+    
 
     if (error) {
       errorToast (error.message);
     } else {
       successToast ("Logged out!");
-      localStorage.clear();
+      localStorage.setItem('persist:root' ,`{user: "{"currentUser":null}", rooms: "{"rooms":[]}", _persist: "{"version":-1,"rehydrated":true}"}`);
     }
+    router.reload();
   };
 
   
