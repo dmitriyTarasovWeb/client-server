@@ -1,10 +1,10 @@
 import React from "react";
 import Lottie from "react-lottie";
-import notFound from "../public/assets/not-found-lottie.json";
+import notFound from "../public/assets/not_found.json";
 
 const ChatNotFound = () => {
   return (
-    <div className="h-full bg-blue-900/70 w-full flex flex-col justify-center items-center gap-4">
+    <div className="h-full bg-spotify-black/20 w-full flex flex-col justify-center items-center gap-4">
       <span className="opacity-70">
         <Lottie
           options={{
@@ -15,11 +15,11 @@ const ChatNotFound = () => {
               preserveAspectRatio: "xMidYMid slice",
             },
           }}
-          height={300}
-          width={500}
+          height={250}
+          width={250}
         />
       </span>
-      <h1 className="text-xl">{"😥"}Room Not Found</h1>
+      <h1 className="text-3xl">Room not found</h1>
     </div>
   );
 };

@@ -14,11 +14,12 @@ const ChooseRoomPhoto = ({
   marble?: boolean;
 }) => {
   const generateRandomPhoto = useGenerateRandomPhoto();
-  const placeholderPhoto = "./assets/avatar_placeholder.png";
+
+  const placeholderPhoto = "./photos/photo_1.png";
 
   const loadPhotos = () => {
-    const newPhotos = Array.from({ length: 8 }, (_, i) =>
-      i === 0 && previousRoomPhoto ? previousRoomPhoto : generateRandomPhoto()
+    const newPhotos = Array.from({ length: 6 }, (_, i) =>
+      i === 0 && previousRoomPhoto ? previousRoomPhoto : generateRandomPhoto('photo')
     );
     setPhotos(newPhotos);
   };
@@ -51,7 +52,7 @@ const ChooseRoomPhoto = ({
         <img
           src={photos[selectedIdx] || placeholderPhoto}
           alt=""
-          className="h-20 sm:h-36 my-[0.5rem] rounded-full"
+          className="h-18 sm:h-36 m-[0.5rem] rounded-md"
         />
         <span className="hidden sm:flex h-24 mr-0 ml-2 w-[1px] border border-r-0 border-spotify-green/30" />
         <span className="sm:hidden my-2 h-[1px] w-36 border border-b-0 border-spotify-green/30" />

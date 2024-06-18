@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Lottie from "react-lottie";
 import PrimaryButton from "../components/PrimaryButton";
-import visual_anim from "../public/assets/visual_anim.json";
+import visual_anim from "../public/assets/dog_listen.json";
 import { getRoomAPI } from "../services/apiServices";
 import '@fontsource/montserrat/500.css';
 
@@ -57,9 +57,9 @@ export default function JoinRoom() {
               preserveAspectRatio: "xMidYMid slice",
             },
           }}
-          height={150}
-          width={120}
-         
+          height={360}
+          width={360}
+
         />
         <p className="px-3 text-center text-spotify-text font-montserrat-300 mt-10">
           {"Join a Room, 💬 chat and 🎵 vibe on music with your friends"}

@@ -37,7 +37,7 @@ export default function CreateRoom() {
 
   useEffect(() => {
     setRoomID(generateUniqueRandomString());
-    setRoomPhoto(generateRandomPhoto()); // Set a random photo on component mount
+    setRoomPhoto(generateRandomPhoto('photo')); // Set a random photo on component mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

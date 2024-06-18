@@ -14,7 +14,7 @@ const ChoosePhotoButton = ({
   return (
     <button
       onClick={() => handlePhotoClick(idx)}
-      className={"h-12 sm:h-14 m-[0.05rem] sm:m-1 p-1 rounded-full hover:outline hover:outline-spotify-green-dark/30 ".concat(
+      className={"h-12 sm:h-14 my-[0.05rem] sm:m-1 p-1 rounded-full hover:outline hover:outline-spotify-green-dark/30 ".concat(
         idx === selectedIdx ? "outline outline-spotify-green-dark" : ""
       )}
     >

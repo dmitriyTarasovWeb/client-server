@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiRefresh } from "react-icons/bi";
-import useGenerateRandomAvatar from "../hooks/useGenerateRandomAvatar";
+import useGenerateRandomPhoto from "../hooks/useGenerateRandomPhoto";
 import useGenerateRandomString from "../hooks/useGenerateRandomString";
 import ChooseAvatarButton from "./ChooseAvatarButton";
 import SmallButton from "./SmallButton";
@@ -14,14 +14,14 @@ const ChooseAvatar = ({
   previousAvatar?: string;
   marble?: boolean;
 }) => {
-  const generateRandomAvatar = useGenerateRandomAvatar();
+  const generateRandomAvatar = useGenerateRandomPhoto();
   const generateRandomString = useGenerateRandomString(16);
 
   const placeholderAvatar = "/assets/avatar_placeholder.png";
 
   const loadAvatars = () => {
     const newAvatars = Array.from({ length: 8 }, (_, i) =>
-      i === 0 && previousAvatar ? previousAvatar : marble ? generateRandomString : generateRandomAvatar()
+      i === 0 && previousAvatar ? previousAvatar : marble ? generateRandomString : generateRandomAvatar('avatar')
     );
     setAvatars(newAvatars);
   };

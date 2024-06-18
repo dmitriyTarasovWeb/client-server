@@ -14,7 +14,7 @@ const SmallButton = ({
       onClick={onClick}
       className={`flex items-center my-2 rounded-full hover:scale-105 duration-100 ${
         type === "gray"
-          ? "text-gray-300 bg-gray-500/30 border border-gray-500"
+          ? "text-green-500 bg-green-500/20 border border-green-500"
           : ""
       } ${
         type === "red" ? "text-red-500 bg-red-500/20 border border-red-500" : ""
