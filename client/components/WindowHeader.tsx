@@ -39,9 +39,11 @@ const WindowHeader = () => {
       errorToast (error.message);
     } else {
       successToast ("Logged out!");
-      localStorage.setItem('persist:root' ,`{user: "{"currentUser":null}", rooms: "{"rooms":[]}", _persist: "{"version":-1,"rehydrated":true}"}`);
+      
     }
     router.reload();
+
+    localStorage.setItem('persist:root' ,`{user: "{\"currentUser\":{\"uid\":\"eyJhbGciOiJIUzI1NiIsImtpZCI6Incrd3RDYW9kcGFFVVVJb1MiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzE4NzYyNjIxLCJpYXQiOjE3MTg3NTkwMjEsImlzcyI6Imh0dHBzOi8vZGNidnFxcWt0amphcXhyZXRiZWouc3VwYWJhc2UuY28vYXV0aC92MSIsInN1YiI6IjhjN2EyMDU1LWNiOTYtNDdiMS04MGIzLTM2MzQ5NDM4YjU5ZiIsImVtYWlsIjoidGFyYXNvdjE0LjA4LjE5OTlAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6e30sInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiYWFsIjoiYWFsMSIsImFtciI6W3sibWV0aG9kIjoicGFzc3dvcmQiLCJ0aW1lc3RhbXAiOjE3MTg3NTkwMjF9XSwic2Vzc2lvbl9pZCI6ImRkMGZjZjEzLTg2YzQtNDhhMy04YWFjLTRjZGYyZTUwZmJjOCIsImlzX2Fub255bW91cyI6ZmFsc2V9.m6fbeKAtNejvED5NlvzQb-YVaqHin6nGPoR7xSUEc5E\",\"name\":\"3243242\",\"avatarUrl\":\"/avatars/avatar_4.svg\"}}", rooms: "{"rooms":[]}", _persist: "{"version":-1,"rehydrated":true}"}`);
   };
 
   
@@ -54,14 +56,19 @@ const WindowHeader = () => {
   }
   
   const pushDataLocalStorage = (data: string) => {
-    getUserByEmail(data)
+    try{
+      getUserByEmail(data)
       .then((response: UserData) => { // Здесь используем интерфейс UserData
         pushLocalStorage(response);
       });
+    }
+    catch(error){
+      console.log("ewew")
+    }
   
     const pushLocalStorage = (response: UserData) => { // И здесь тоже
 
-     
+      if(response === undefined) return
 
       if(`${response.rooms[0]}` !== `${localStorage.getItem('persist:root')}`){
 
@@ -87,7 +94,8 @@ const WindowHeader = () => {
         name: "Jon Doe"
       };
 
-      createUser(userData);
+      createUser(userData)
+      
       pushDataLocalStorage(email);
       startCheckLocalStorage(email);
       

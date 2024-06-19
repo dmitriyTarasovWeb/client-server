@@ -27,8 +27,7 @@ export const getUserByEmail = async (email: string): Promise<any> => {
       const response = await axios.get(`${API_URL}/email/${email}`);
       return response.data;
     } catch (error) {
-      console.error('Error fetching user by email:', error);
-      throw error;
+      console.error('Error fetching user by email:');
     }
   };
 
@@ -38,7 +37,7 @@ export const addRoomToUserByEmail = async (email: string, roomId: string): Promi
       const response = await axios.post(`${API_URL}/email/${email}/rooms`, { roomId });
       return response.data;
     } catch (error) {
-      console.error('Error adding room to user:', error);
-      throw error;
+      console.error('Error adding room to user:');
+
     }
   };
