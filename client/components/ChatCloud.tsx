@@ -19,8 +19,8 @@ const ChatCloud: FC<{ message: Message }> = ({ message }) => {
         <div
           className={`max-w-[calc(70%)] min-w-[4rem] px-3 py-2 ${
             !(message.senderUid === currentUser?.uid)
-              ? "bg-indigo-500/30"
-              : "bg-indigo-500/80"
+              ? "bg-spotify-green-dark/30"
+              : "bg-spotify-green-dark/80"
           } border border-indigo-300/20 rounded-lg rounded-tl-none flex flex-col items-start justify-start`}
         >
           <span

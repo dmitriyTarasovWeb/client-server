@@ -43,7 +43,7 @@ const WindowHeader = () => {
     }
   };
 
-  
+
   let email = `john doe`
 
   useEffect(() => {
@@ -51,50 +51,50 @@ const WindowHeader = () => {
       if (session) {
 
         console.log("session is available:", session.user.email);
-      
+
         const email = `${session.user.email}`
 
         const userData = {
           email: email,
           name: "Jon doe"
-        
+
         }
       createUser(userData);
-      
+
 
       } else {
       console.log("session is not available yet");
     }
-  }, [session]); 
+  }, [session]);
 
 
   useEffect(() => {
 
-   
-  
+
+
     let previousLocalStorageState = email;
 
     function checkLocalStorage() {
       const currentLocalStorageState = JSON.stringify(localStorage);
-      
+
       if (currentLocalStorageState !== previousLocalStorageState) {
           // console.log('Привет!');
 
-          
+
 
           previousLocalStorageState = currentLocalStorageState;
       }
-      
+
       setTimeout(checkLocalStorage, 500); // Повторно запускаем проверку через 1 секунду
     }
-  
+
     setTimeout(checkLocalStorage, 1);
 }, []);
 
 
 
   return (
-    <div className="hidden sm:flex w-full justify-between items-center p-3 ">
+    <div className="hidden sm:flex w-full bg-spotify-white/25 justify-between items-center p-3">
       <div className="flex items-center">
         <Image
           src="/white-title.png"
@@ -118,7 +118,7 @@ const WindowHeader = () => {
           ) : (
             // User is not logged in
             <>
-              
+
               <div>
                 <Button
                   onClick={authModal.onOpen}
@@ -131,7 +131,7 @@ const WindowHeader = () => {
           )}
               </div>
       </div>
-    
+
   );
 };
 

@@ -72,13 +72,13 @@ export default function CreateRoom() {
   };
 
   const handleSubmit = async (e?: any) => {
-    
+
     e?.preventDefault();
 
     if(!session) { onOpen(); return }
     if (localStorage.length === 0) { errorToast("For first create your identity!"); return }
 
- 
+
     if (validate()) {
       createRoomMutation.mutate({
         rid: roomID,
@@ -88,7 +88,7 @@ export default function CreateRoom() {
 
 
 
-      
+
       const email = `${session.user.email}`
 
       const persistRootData = localStorage.getItem('persist:root');
@@ -134,7 +134,7 @@ export default function CreateRoom() {
         </div>
         <div className="w-full flex flex-col items-center">
           <div className="w-full max-w-lg flex flex-col gap-2 items-center justify-center">
-            <label className="font-medium">Write a room name</label>
+            <label className="font-medium mt-3">Write a room name</label>
             <span className="h-3 sm:h-0" />
             <input
               value={roomName}

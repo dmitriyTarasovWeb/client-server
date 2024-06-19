@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Lottie from "react-lottie";
 import { Track } from "../interfaces/Track";
-import searchAnimation from "../public/assets/search_lottie.json";
+import searchAnimation from "../public/assets/dog_wait.json";
 import MusicPickerListTile from "./MusicPickerListTile";
 import axios from "axios";
 import { searchMusicAPI } from "../services/apiServices";
@@ -24,8 +24,8 @@ const MusicPickerList = ({ query }: { query: string }) => {
                   preserveAspectRatio: "xMidYMid slice",
                 },
               }}
-              height={350}
-              width={300}
+              height={220}
+              width={220}
             />
           </div>
         ) : (

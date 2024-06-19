@@ -2,7 +2,7 @@ import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
 import Lottie from "react-lottie";
 import waveAnimation from "../public/assets/wave_lottie.json";
-import floatingMusicAnimation from "../public/assets/floating_music_lottie.json";
+import floatingMusicAnimation from "../public/assets/wave.json";
 import useRoomMusic from "../hooks/useRoomMusic";
 
 const MusicFAB = ({
@@ -27,7 +27,7 @@ const MusicFAB = ({
           } animate-ping rounded-full`}
         />
         <div
-          className={`absolute bottom-0 right-0 sm:w-40 w-32 ${
+          className={`absolute bottom-(-4) right-(-3) sm:w-40 w-32 ${
             !paused && !musicModalOpen ? "flex" : "hidden"
           } justify-center items-center cursor-auto`}
         >
@@ -40,8 +40,8 @@ const MusicFAB = ({
                 preserveAspectRatio: "xMidYMid slice",
               },
             }}
-            height={300}
-            width={300}
+            height={190}
+            width={190}
           />
         </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "react-lottie";
-import notFound from "../public/assets/not_found.json";
+import notFound from "../public/assets/dog_cry.json";
 
 const ChatNotFound = () => {
   return (

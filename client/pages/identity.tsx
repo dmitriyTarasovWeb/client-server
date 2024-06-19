@@ -57,7 +57,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="w-full h-full min-h-full overflow-y-auto p-4 flex flex-col justify-center items-center text-spotify-text">
+    <div className="w-full h-full bg-white/5 min-h-full overflow-y-auto p-4 flex flex-col justify-center items-center text-spotify-text">
       <Head>
         <title>Choose Identity</title>
       </Head>

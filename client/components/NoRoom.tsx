@@ -1,9 +1,9 @@
 import Lottie from "react-lottie";
-import plane from "../public/assets/plane.json";
+import plane from "../public/assets/dog_sing.json";
 
 export default function NoRoom() {
   return (
-    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-white/10 text-spotify-text font-montserrat border-l border-spotify-grey">
+    <div className="p-4 w-full h-full flex flex-col justify-center items-center bg-white/5 text-spotify-text font-montserrat border-l border-spotify-grey">
       <Lottie
         options={{
           loop: true,
@@ -13,8 +13,8 @@ export default function NoRoom() {
             preserveAspectRatio: "xMidYMid slice",
           },
         }}
-        height={250}
-        width={250}
+        height={350}
+        width={350}
       />
       <div className="flex flex-col items-center mt-8">
         <p className="text-lg text-center mb-4">
