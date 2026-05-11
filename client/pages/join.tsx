@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Lottie from "react-lottie";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie'), {
+  ssr: false,
+});
 import PrimaryButton from "../components/PrimaryButton";
 import visual_anim from "../public/assets/dog_listen.json";
 import { getRoomAPI } from "../services/apiServices";

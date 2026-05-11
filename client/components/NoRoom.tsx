@@ -1,4 +1,8 @@
-import Lottie from "react-lottie";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie'), {
+  ssr: false,
+});
 import plane from "../public/assets/dog_sing.json";
 
 export default function NoRoom() {

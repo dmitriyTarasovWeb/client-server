@@ -1,6 +1,10 @@
 import React from "react";
 import { BsPlayCircle } from "react-icons/bs";
-import Lottie from "react-lottie";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie'), {
+  ssr: false,
+});
 import waveAnimation from "../public/assets/wave_lottie.json";
 import floatingMusicAnimation from "../public/assets/wave.json";
 import useRoomMusic from "../hooks/useRoomMusic";

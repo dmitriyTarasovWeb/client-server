@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Lottie from "react-lottie";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie'), {
+  ssr: false,
+});
 import { Track } from "../interfaces/Track";
 import searchAnimation from "../public/assets/dog_wait.json";
 import MusicPickerListTile from "./MusicPickerListTile";

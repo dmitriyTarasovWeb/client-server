@@ -4,8 +4,9 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ["avatars.dicebear.com"],
+     dangerouslyAllowSVG: true,
   },
-  dangerouslyAllowSVG: true,
+ 
 };
 
 module.exports = nextConfig;
